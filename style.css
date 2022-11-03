@@ -16,3 +16,9 @@ main {
   height: 50vh;
   background-color: rgb(73, 73, 73);
 }
+
+.pic-box {
+  width: 61px;
+  height: 90px;
+  object-fit: center;
+}
