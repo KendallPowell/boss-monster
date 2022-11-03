@@ -21,6 +21,8 @@ const boss = {
   level: 1
 }
 
+
+
 function attackBoss() {
   boss.health -= 15
   console.log('attack', boss.health)
@@ -30,6 +32,9 @@ function attackBoss() {
 function updateBoss() {
   let bossElm = document.getElementById('boss')
   bossElm.style.width = boss.health + '%'
+  if (boss.health <= 0) {
+    window.alert("You did it! The Dragon is dead")
+  }
 }
 
 function bossDamage() {
@@ -48,7 +53,7 @@ function bossDamage() {
 function updateHealth() {
   heroes.forEach(h => {
     if (h.health <= 0) {
-      h.image = "☠☠☠"
+      h.image = "☠"
     }
     // console.log(h.health, 'health')
   })
