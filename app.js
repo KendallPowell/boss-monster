@@ -3,7 +3,8 @@ const heroes = [
     name: 'Slate Slabrock',
     type: 'dwarf',
     damage: 5,
-    health: 100
+    health: 100,
+
   },
   {
     name: 'Flint Ironstag',
@@ -20,3 +21,46 @@ const boss = {
   damage: 5,
   level: 1
 }
+
+function attackBoss() {
+  boss.health -= 15
+  console.log('attack', boss.health)
+  updateBoss()
+}
+
+function updateBoss() {
+  let bossElm = document.getElementById('boss')
+  bossElm.style.width = boss.health + '%'
+}
+
+function bossDamage() {
+  heroes.forEach(h => {
+    h.health -= 5
+    let heroElm = document.getElementById(h.name)
+    let heroBar = heroElm.querySelector('.progress-bar')
+    heroBar.style.width = h.health + '%'
+    if (h.health <= 0) h.health = 0
+  })
+
+  // console.log('damage 5')
+  updateHealth()
+}
+
+function updateHealth() {
+  heroes.forEach(h => {
+    if (h.health <= 0) {
+      h.image = "☠☠☠"
+    }
+    // console.log(h.health, 'health')
+  })
+}
+
+function updateHero() {
+  heroes.forEach(h => {
+    updateHealth(h.name)
+    let heroElm = document.getElementById(h.name)
+
+  })
+}
+
+setInterval(bossDamage, 1000)
