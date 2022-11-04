@@ -4,12 +4,16 @@ const heroes = [
     type: 'dwarf',
     damage: 5,
     health: 100,
+    level: 1,
+    Gold: 0
   },
   {
     name: 'Flint Ironstag',
     type: 'elf',
     damage: 10,
-    health: 50
+    health: 50,
+    level: 1,
+    Gold: 0
   }
 ]
 
