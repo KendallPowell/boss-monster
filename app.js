@@ -1,17 +1,17 @@
 const heroes = [
   {
-    name: 'Slate Slabrock',
-    type: 'dwarf',
+    name: 'Hulk',
+    type: 'tank',
     damage: 5,
     health: 100,
     level: 1,
     Gold: 0
   },
   {
-    name: 'Flint Ironstag',
-    type: 'elf',
+    name: 'Iron Man',
+    type: 'dmg',
     damage: 10,
-    health: 50,
+    health: 85,
     level: 1,
     Gold: 0
   }
@@ -38,6 +38,7 @@ function updateBoss() {
   bossElm.style.width = boss.health + '%'
   if (boss.health <= 0) {
     window.alert("You did it! The Dragon is dead")
+    bossLevelUp()
   }
 }
 
@@ -49,17 +50,20 @@ function bossDamage() {
     heroBar.style.width = h.health + '%'
     if (h.health <= 0) h.health = 0
   })
-
   // console.log('damage 5')
   updateHealth()
+}
+
+function bossLevelUp() {
+  boss.level++
+  boss.maxHealth += boss.health
 }
 
 function updateHealth() {
   heroes.forEach(h => {
     if (h.health <= 0) {
-      h.image = "☠"
+      window.alert('We love you 3,000')
     }
-    // console.log(h.health, 'health')
   })
 }
 
